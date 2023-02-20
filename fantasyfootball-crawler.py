@@ -21,7 +21,7 @@ def parse(url):
             print(curTable[j])
 
 urlList = ["https://www.pro-football-reference.com/years/2022/advanced.htm", 
-"https://fantasydata.com/nfl/fantasy-football-leaders"]
+"https://fantasydata.com/nfl/fantasy-football-leaders", "https://www.pff.com/fantasy/stats"]
 
 for i in range(len(urlList)):
     parse(urlList[i])
