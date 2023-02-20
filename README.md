@@ -1,5 +1,6 @@
 # fantasyfootball-crawler
 This is an open source project that will help people access all the important statistics for fantasy football.
+I want to create crawlers for both team and player statistics, and package them into neat dataframes.
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
