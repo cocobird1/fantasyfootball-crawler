@@ -12,8 +12,8 @@ def read_tables(table, index):
     df = pd.read_html(str(table))[index]
     return df
 
+# this is a generalized parsing function, but I will make specific ones for each site because each has different format
 def parse(url):
-    url = "https://www.pro-football-reference.com/years/2022/advanced.htm"
     df = get_tables(url)
     for i in range(len(df)):
         curTable = read_tables(df, i)
@@ -21,7 +21,8 @@ def parse(url):
             print(curTable[j])
 
 urlList = ["https://www.pro-football-reference.com/years/2022/advanced.htm", 
-"https://fantasydata.com/nfl/fantasy-football-leaders", "https://www.pff.com/fantasy/stats"]
+"https://fantasydata.com/nfl/fantasy-football-leaders", "https://www.pff.com/fantasy/stats", 
+"https://nextgenstats.nfl.com/", "https://theanalyst.com/na/2021/09/nfl-stats-zone/"]
 
 for i in range(len(urlList)):
     parse(urlList[i])
