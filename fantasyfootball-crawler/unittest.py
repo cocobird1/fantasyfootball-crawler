@@ -1,5 +1,5 @@
 import unittest
-from main import *
+from __main__ import *
 class TestStringMethods(unittest.TestCase):
     
     def test_ffl_empipty(self):
