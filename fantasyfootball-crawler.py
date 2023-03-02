@@ -1,5 +1,7 @@
 import bs4 as bs
+from bs4 import BeautifulSoup
 import pandas as pd
+import requests
 
 # To make this generalized across all websites, there is a searchTerm 
 # associated with the HTML wrappers of the website.
@@ -24,16 +26,25 @@ def parse_print(url, searchTerm):
 
 # A dictionary containing the URL and search term, with the names as keys.
 urlSearchDict = {
-    pff : ["https://www.pff.com/fantasy/stats", 'kyber-table-body___rows'],
-    fantasyData : ["https://fantasydata.com/nfl/fantasy-football-leaders", 'stats_grid'],
-    pfr : ["https://www.pro-football-reference.com/years/2022/advanced.htm", 'tbody'],
-    nextGen : ["https://nextgenstats.nfl.com/stats/top-plays/fastest-ball-carriers", 'el-table__body-wrapper'],
-    analyst : ["https://theanalyst.com/na/2021/09/nfl-stats-zone/", 'colgroup']
+    "pff" : ["https://www.pff.com/fantasy/stats", 'main'],
+    #"fantasyData" : ["https://fantasydata.com/nfl/fantasy-football-leaders", 'container'],
+    #"pfr" : ["https://www.pro-football-reference.com/years/2022/advanced.htm", 'container'],
+    #"nextGen" : ["https://nextgenstats.nfl.com/stats/top-plays/fastest-ball-carriers", 'container'],
+    #"analyst" : ["https://theanalyst.com/na/2021/09/nfl-stats-zone/", 'container']
 }
 
+#for key in urlSearchDict.keys():
+#    parse_print(urlSearchDict.get(key)[0], urlSearchDict.get(key)[1])
 for key in urlSearchDict.keys():
-    parse_print(urlSearchDict.get(key)[0], urlSearchDict.get(key)[1])
+    URL = urlSearchDict.get(key)[0]
+    page = requests.get(URL)
+    soup = BeautifulSoup(page.content, "html.parser")
+    results = soup.find(id=urlSearchDict.get(key)[1])
+    print(results.prettify())
 
-
-
+URL = "https://fantasydata.com/nfl/fantasy-football-leaders"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find("div", attrs={"class" : "stats-grid-container"})
+print(results.prettify())
 
