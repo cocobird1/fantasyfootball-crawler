@@ -52,3 +52,5 @@ def read_dict():
 
 def get_Dict():
     return urlSearchDict
+
+read_ffl()
