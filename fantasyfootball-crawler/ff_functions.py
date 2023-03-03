@@ -13,19 +13,27 @@ urlSearchDict = {
     #"analyst" : ["https://theanalyst.com/na/2021/09/nfl-stats-zone/", 'container']
 }
 
-def getTopPlayers():
-    URL = "https://fantasydata.com/nfl/fantasy-football-leaders"
+def soupInit(URL):
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, "html.parser")
-    results = soup.find_all("a", href=True)
+    return soup
+
+def getResults(label1, hrefBool, soup):
+    results = soup.find_all(label1, href = hrefBool)
+    return results
+
+def getTopPlayers(results):
     topPlayers = []
-    print(len(results))
     for result in results:
         if "nfl/" in result.get("href") and "-fantasy/" in result.get("href"):
             x = result.text.split()
             name = x[0] + " " + x[1]
             topPlayers.append(name)
     return topPlayers
+
+soup = soupInit("https://fantasydata.com/nfl/fantasy-football-leaders")
+results = getResults("a", True, soup)
+getTopPlayers(results)
 
 def read_pff():
     URL = "https://www.pff.com/fantasy/stats"
@@ -58,4 +66,3 @@ def read_dict():
 def get_Dict():
     return urlSearchDict
 
-getTopPlayers()
