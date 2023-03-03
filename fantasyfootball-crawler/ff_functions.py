@@ -13,13 +13,19 @@ urlSearchDict = {
     #"analyst" : ["https://theanalyst.com/na/2021/09/nfl-stats-zone/", 'container']
 }
 
-def read_ffl():
+def getTopPlayers():
     URL = "https://fantasydata.com/nfl/fantasy-football-leaders"
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, "html.parser")
-    results = soup.find("div", attrs={"class" : "stats-grid-container"})
-    print(results.prettify())
-    return results
+    results = soup.find_all("a", href=True)
+    topPlayers = []
+    print(len(results))
+    for result in results:
+        if "nfl/" in result.get("href") and "-fantasy/" in result.get("href"):
+            x = result.text.split()
+            name = x[0] + " " + x[1]
+            topPlayers.append(name)
+    return topPlayers
 
 def read_pff():
     URL = "https://www.pff.com/fantasy/stats"
@@ -34,7 +40,6 @@ def read_nextgen():
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, "html.parser")
     results = soup.find("div", attrs={"id" : "stats-top-plays-view"})
-    print(results.prettify())
     return results
 
 def read_dict():
@@ -53,4 +58,4 @@ def read_dict():
 def get_Dict():
     return urlSearchDict
 
-read_ffl()
+getTopPlayers()
