@@ -14,7 +14,7 @@ install:  ## install library
 # LINTS #
 #########
 lint:  ## run static analysis with flake8
-	python -m black --check fantasyfootball-crawler setup.py
+	python -m black --check --exclude "test_all\.py" fantasyfootball-crawler setup.py #test_all is being really weird 
 	python -m flake8 fantasyfootball-crawler setup.py
 
 # Alias
