@@ -1,5 +1,5 @@
 from unittest.mock import patch
-from ff_functions import *
+from ff_functions import getResults, getTopPlayers, read_pff, read_nextgen, get_Dict, read_dict, soupInit
 
 # Unit tests
 def test_soup():
@@ -7,11 +7,11 @@ def test_soup():
 
 
 def test_results():
-    assert getResults("a", True, soup) != None
+    assert getResults("a", True, soupInit("https://fantasydata.com/nfl/fantasy-football-leaders")) is not None
 
 
 def test_getTopPlayers():
-    assert getTopPlayers(results) != None
+    assert getTopPlayers(getResults("a", True, soupInit("https://fantasydata.com/nfl/fantasy-football-leaders"))) is not None
 
 
 def test_pff_empty():
