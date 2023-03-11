@@ -1,9 +1,9 @@
 from unittest.mock import patch
 from ff_functions import getResults, getTopPlayers, read_pff, read_nextgen, get_Dict, read_dict, soupInit
 
-# Unit tests
+
 def test_soup():
-    assert soupInit("https://fantasydata.com/nfl/fantasy-football-leaders") != None
+    assert soupInit("https://fantasydata.com/nfl/fantasy-football-leaders") is not None
 
 
 def test_results():
@@ -11,7 +11,8 @@ def test_results():
 
 
 def test_getTopPlayers():
-    assert getTopPlayers(getResults("a", True, soupInit("https://fantasydata.com/nfl/fantasy-football-leaders"))) is not None
+    soup = soupInit("https://fantasydata.com/nfl/fantasy-football-leaders")
+    assert getTopPlayers(getResults("a", True, soup)) is not None
 
 
 def test_pff_empty():
@@ -35,4 +36,4 @@ def integrationTest1():
     soup = soupInit("https://fantasydata.com/nfl/fantasy-football-leaders")
     results = getResults("a", True, soup)
     ret = getTopPlayers(results)
-    assert ret != None
+    assert ret is not None
