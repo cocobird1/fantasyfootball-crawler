@@ -54,7 +54,7 @@ def read_dict():
     #    parse_print(urlSearchDict.get(key)[0], urlSearchDict.get(key)[1])
     ret = ""
     for key in urlSearchDict.keys():
-        ret += urlSearchDict.get(key)
+        ret += urlSearchDict.get(key)[0]
     return ret
 
 
