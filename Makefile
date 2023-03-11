@@ -43,7 +43,8 @@ test: ## clean and run unit tests
 
 coverage:  ## clean and run unit tests with coverage
 	python -m pytest -v fantasyfootball-crawler/tests --cov=fantasyfootball-crawler --cov-branch --cov-fail-under=75 --cov-report term-missing
-
+	- name: Upload coverage reports to Codecov
+  	uses: codecov/codecov-action@v3
 # Alias
 tests: test
 
