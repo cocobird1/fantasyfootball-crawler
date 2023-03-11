@@ -2,5 +2,6 @@ include CODE_OF_CONDUCT.md
 include CONTRIBUTING.md
 include Makefile
 include SECURITY.md
+include __init__.py
 recursive-include fantasyfootball-crawler *.py
 recursive-include fantasyfootball-crawler/tests *.py
