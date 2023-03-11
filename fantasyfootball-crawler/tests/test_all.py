@@ -1,4 +1,4 @@
-from ff_functions import getResults, getTopPlayers, read_nextgen, get_Dict, read_dict, soupInit
+from ff_functions import getResults, getTopPlayers, read_pff, get_Dict, read_dict, soupInit
 
 
 def test_soup():
