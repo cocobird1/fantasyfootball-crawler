@@ -1,4 +1,3 @@
-from unittest.mock import patch
 from ff_functions import getResults, getTopPlayers, read_pff, read_nextgen, get_Dict, read_dict, soupInit
 
 
