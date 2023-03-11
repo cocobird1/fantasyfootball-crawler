@@ -32,16 +32,11 @@ def getTopPlayers(results):
     return topPlayers
 
 
-soup = soupInit("https://fantasydata.com/nfl/fantasy-football-leaders")
-results = getResults("a", True, soup)
-getTopPlayers(results)
-
-
 def read_pff():
     URL = "https://www.pff.com/fantasy/stats"
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, "html.parser")
-    results = soup.find("div", attrs={"class": "main"})
+    results = soup.find("div", attrs={"class": "g-mb-4"})
     print(results.prettify())
     return results
 
@@ -50,7 +45,7 @@ def read_nextgen():
     URL = "https://nextgenstats.nfl.com/stats/top-plays/fastest-ball-carriers"
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, "html.parser")
-    results = soup.find("div", attrs={"id": "stats-top-plays-view"})
+    results = soup.find("main", attrs={"id": "main-content"})
     return results
 
 
@@ -69,4 +64,4 @@ def read_dict():
 
 
 def get_Dict():
-    return urlSearchDict
+    return len(urlSearchDict)

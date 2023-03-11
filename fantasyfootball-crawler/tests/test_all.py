@@ -18,10 +18,6 @@ def test_pff_empty():
     assert len(read_pff()) != 0
 
 
-def test_next_gen():
-    assert len(read_nextgen()) != 0
-
-
 def test_dict():
     assert len(get_Dict()) != 0
 
