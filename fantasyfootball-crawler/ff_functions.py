@@ -54,12 +54,7 @@ def read_dict():
     #    parse_print(urlSearchDict.get(key)[0], urlSearchDict.get(key)[1])
     ret = ""
     for key in urlSearchDict.keys():
-        URL = urlSearchDict.get(key)[0]
-        page = requests.get(URL)
-        soup = BeautifulSoup(page.content, "html.parser")
-        results = soup.find(id=urlSearchDict.get(key)[1])
-        print(results.prettify())
-        ret = ret + results
+        ret += urlSearchDict.get(key)
     return ret
 
 

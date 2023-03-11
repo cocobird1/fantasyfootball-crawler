@@ -19,7 +19,7 @@ def test_pff_empty():
 
 
 def test_dict():
-    assert len(get_Dict()) != 0
+    assert get_Dict() != 0
 
 
 def test_read_dict():
