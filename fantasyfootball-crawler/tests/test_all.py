@@ -1,4 +1,4 @@
-from ff_functions import getResults, getTopPlayers, read_pff, get_Dict, read_dict, soupInit
+from ff_functions import getQBData, getRBData, getWRData, getResults, getAggregateTopPlayers, read_pff, get_Dict, read_dict, soupInit
 
 
 def test_soup():
@@ -11,9 +11,17 @@ def test_results():
 
 def test_getTopPlayers():
     soup = soupInit("https://fantasydata.com/nfl/fantasy-football-leaders")
-    assert getTopPlayers(getResults("a", True, soup)) is not None
+    assert getAggregateTopPlayers(getResults("a", True, soup)) is not None
 
+def test_getQBData():
+    assert getQBData() is not None
 
+def test_getRBData():
+    assert getRBData() is not None
+
+def test_getWRData():
+    assert getWRData() is not None
+    
 def test_pff_empty():
     assert len(read_pff()) != 0
 
@@ -30,5 +38,5 @@ def test_read_dict():
 def integrationTest1():
     soup = soupInit("https://fantasydata.com/nfl/fantasy-football-leaders")
     results = getResults("a", True, soup)
-    ret = getTopPlayers(results)
+    ret = getAggregateTopPlayers(results)
     assert ret is not None
