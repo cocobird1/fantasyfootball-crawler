@@ -145,7 +145,7 @@ def getWRData():
     dfFF = df.loc[:, ["Player", "Age", "Pos", "Tgt", "Rec", "Yds", "TD"]].sort_values(
         by=['Tgt', 'Rec', 'Yds'], ascending=False
     )
-    print(dfFF.head())
+    return dfFF
 
 
 def get_Dict():
