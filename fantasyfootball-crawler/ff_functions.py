@@ -114,7 +114,7 @@ def getRBData():
     df['Att'].fillna(value="0", inplace=True)
     df['Att'] = df["Att"].astype(int)
     dfFF = df.sort_values(by=["Yds", "Att"], ascending=False)
-    print(dfFF.head())
+    return dfFF
 
 
 def getWRData():
