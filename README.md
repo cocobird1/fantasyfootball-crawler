@@ -20,3 +20,9 @@ This project is a pure python project using modern tooling. It uses a `Makefile`
 - `make test`: run automated tests with `pytest`
 - `make coverage`: run automated tests with `pytest` and collect coverage information
 - `make dist`: package library for distribution
+
+# How to Install Library
+Use pip. pip install fantasyfootball_crawler.tar.gz
+
+# How to Use Library
+Use the library by calling the functions that have been written in ff_functions, after importing them.
