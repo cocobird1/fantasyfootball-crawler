@@ -6,7 +6,7 @@ I want to create crawlers for both team and player statistics, and package them 
 ![github issues](https://img.shields.io/github/issues/cocobird1/fantasyfootball-crawler)
 [![Build Status](https://github.com/cocobird1/fantasyfootball-crawler/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/cocobird1/fantasyfootball-crawler/actions?query=workflow%3A%22Build+Status%22)
 [![codecov](https://codecov.io/gh/cocobird1/fantasyfootball-crawler/branch/main/graph/badge.svg)](https://codecov.io/gh/cocobird1/fantasyfootball-crawler)
-
+[![PyPI](https://img.shields.io/pypi/v/numpy)](https://pypi.org/project/fantasyfootball-crawler/):
 # Overview
 Fantasy football is a game played by many Americans, however most are uneducated when it comes to the various in-depth statistics that are needed to "level up" your team, and potentially win big. Most websites gloss over important statistics, or don't include all of the information needed (think FantasyPros), or perhaps include too much information (think pro-football-reference). I want to build a one-stop-shop for these important statistics.
 
