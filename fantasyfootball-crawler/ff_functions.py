@@ -22,6 +22,7 @@ def getResults(label1, hrefBool, soup):
     results = soup.find_all(label1, href=hrefBool)
     return results
 
+
 def getAggregateTopPlayers(results):
     topPlayers = []
     for result in results:
@@ -57,6 +58,7 @@ def read_dict():
         ret += urlSearchDict.get(key)[0]
     return ret
 
+
 def getQBData():
     page = requests.get("https://www.pro-football-reference.com/years/2022/passing.htm")
     soup = BeautifulSoup(page.content, "html.parser")
@@ -65,7 +67,7 @@ def getQBData():
     passingCategories = []
     for header in headers:
         passingCategories.append(header.getText())
-    
+
     playerStats = soup.findAll('tr')[1:]
     compiled = []
     for i in range(len(playerStats)):
@@ -85,6 +87,7 @@ def getQBData():
     print(dfFF.head())
     return dfFF
 
+
 def getRBData():
     page = requests.get("https://www.pro-football-reference.com/years/2022/rushing.htm")
     soup = BeautifulSoup(page.content, "html.parser")
@@ -93,7 +96,7 @@ def getRBData():
     rushingCategories = []
     for header in headers:
         rushingCategories.append(header.getText())
-    
+
     playerStats = soup.findAll('tr')[1:]
     compiled = []
     for i in range(1, len(playerStats)):
@@ -113,6 +116,7 @@ def getRBData():
     dfFF = df.sort_values(by=["Yds", "Att"], ascending=False)
     print(dfFF.head())
 
+
 def getWRData():
     page = requests.get("https://www.pro-football-reference.com/years/2022/receiving.htm")
     soup = BeautifulSoup(page.content, "html.parser")
@@ -121,7 +125,7 @@ def getWRData():
     receivingCategories = []
     for header in headers:
         receivingCategories.append(header.getText())
-    
+
     playerStats = soup.findAll('tr')[1:]
     compiled = []
     for i in range(1, len(playerStats)):
@@ -138,11 +142,15 @@ def getWRData():
     df['Rec'] = df["Rec"].astype(int)
     df['Yds'].fillna(value="0", inplace=True)
     df['Yds'] = df["Yds"].astype(int)
-    dfFF = df.loc[:, ["Player", "Age", "Pos", "Tgt", "Rec", "Yds", "TD"]].sort_values(by=['Tgt', 'Rec', 'Yds'], ascending=False)
+    dfFF = df.loc[:, ["Player", "Age", "Pos", "Tgt", "Rec", "Yds", "TD"]].sort_values(
+        by=['Tgt', 'Rec', 'Yds'], ascending=False
+    )
     print(dfFF.head())
+
 
 def get_Dict():
     return len(urlSearchDict)
+
 
 getQBData()
 getRBData()
