@@ -11,6 +11,7 @@ __pycache__/
 build/
 develop-eggs/
 dist/
+*.tar.gz
 downloads/
 eggs/
 .eggs/
@@ -127,3 +128,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Mac files
+.DS_Store
+
