@@ -3,177 +3,6 @@ import pandas as pd
 import requests
 
 
-urlSearchDict = {
-    "pff": ["https://www.pff.com/fantasy/stats", 'main'],
-    # "fantasyData" : ["https://fantasydata.com/nfl/fantasy-football-leaders", 'container'],
-    # "pfr" : ["https://www.pro-football-reference.com/years/2022/advanced.htm", 'container'],
-    # "nextGen" : ["https://nextgenstats.nfl.com/stats/top-plays/fastest-ball-carriers", 'container'],
-    # "analyst" : ["https://theanalyst.com/na/2021/09/nfl-stats-zone/", 'container']
-}
-
-
-def soupInit(URL):
-    """
-    Returns a BeautifulSoup object
-
-    Parameters
-    ----------
-    URL : str
-        The URL of the page desired to be queried
-
-    Returns
-    -------
-    BeautifulSoup
-        A BeautifulSoup object that queries the specified URL
-
-    Examples
-    --------
-    >>> soupInit("bing.com")
-    BeautifulSoup object
-
-    """
-    page = requests.get(URL)
-    soup = BeautifulSoup(page.content, "html.parser")
-    return soup
-
-
-def getResults(label1, hrefBool, soup):
-    """
-    A results table of a soup query
-
-    Parameters
-    ----------
-    label1 : str
-        The label used to query the HTML result
-    hrefBool : str
-        Another label to query the desired results
-    soup : BeautifulSoup
-        The soup object to query the website
-
-    Returns
-    -------
-    str[]
-        A list of strings that depict the results queried
-
-    Examples
-    --------
-    >>> getResults("ref", "hi", soup)
-    str[] containing results of the website
-
-    """
-    results = soup.find_all(label1, href=hrefBool)
-    return results
-
-
-def getAggregateTopPlayers(results):
-    """
-    Returns the best NFL players for Fantasy regardless of position
-
-    Parameters
-    ----------
-    results : str[]
-        The results object that can be dissected for the players
-
-    Returns
-    -------
-    str[]
-        A list of the top players
-
-    Examples
-    --------
-    >>> getAggregateTopPlayers(results)
-    [Joe Burrow, Tom Brady, ...]
-
-    """
-    topPlayers = []
-    for result in results:
-        if "nfl/" in result.get("href") and "-fantasy/" in result.get("href"):
-            x = result.text.split()
-            name = x[0] + " " + x[1]
-            topPlayers.append(name)
-    return topPlayers
-
-
-def read_pff():
-    """
-    Returns the results for the PFF website specifically
-
-    Parameters
-    ----------
-    None
-
-    Returns
-    -------
-    str[]
-        A results list that contains players
-
-    Examples
-    --------
-    >>> read_pff()
-    [Joe Burrow, Tom Brady, ...]
-
-    """
-    URL = "https://www.pff.com/fantasy/stats"
-    page = requests.get(URL)
-    soup = BeautifulSoup(page.content, "html.parser")
-    results = soup.find("div", attrs={"class": "g-mb-4"})
-    print(results.prettify())
-    return results
-
-
-def read_nextgen():
-    """
-    Returns the results for the nextGen website specifically
-
-    Parameters
-    ----------
-    None
-
-    Returns
-    -------
-    str[]
-        A results list that contains players
-
-    Examples
-    --------
-    >>> read_nextgen()
-    [Joe Burrow, Tom Brady, ...]
-
-    """
-    URL = "https://nextgenstats.nfl.com/stats/top-plays/fastest-ball-carriers"
-    page = requests.get(URL)
-    soup = BeautifulSoup(page.content, "html.parser")
-    results = soup.find("main", attrs={"id": "main-content"})
-    return results
-
-
-def read_dict():
-    """
-    Returns a string of the keys in the website dict
-
-    Parameters
-    ----------
-    None
-
-    Returns
-    -------
-    str
-        A concactenated string that contains all of the key values
-
-    Examples
-    --------
-    >>> read_dict()
-    "main container"
-
-    """
-    # for key in urlSearchDict.keys():
-    #    parse_print(urlSearchDict.get(key)[0], urlSearchDict.get(key)[1])
-    ret = ""
-    for key in urlSearchDict.keys():
-        ret += urlSearchDict.get(key)[0] + " "
-    return ret
-
-
 def getQBData(metrics):
     """
     Returns a DataFrame of the best QB's and their various stats, filtered and ordered on specific variables
@@ -388,34 +217,34 @@ def getRecData(metrics):
 
 def getScoringData(pos):
     """
-    Returns a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.
+        Returns a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.
 
-    Parameters
-    ----------
-    String
-        Pos string, which determines which position to show the top scorers for
+        Parameters
+        ----------
+        String
+            Pos string, which determines which position to show the top scorers for
 
-    Returns
-    -------
-    DataFrame
-        a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.
+        Returns
+        -------
+        DataFrame
+            a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.
 
-    Examples
-    --------
-    >>> getScoringData("WR")
-                Player Age Pos  Tgt  Rec   Yds  TD
-                7   Davante Adams*+  30  WR  180  100  1516  14
-                0     Tyreek Hill*+  28  WR  170  119  1710   7
-                4      CeeDee Lamb*  23  WR  156  107  1359   9
-                2     Stefon Diggs*  29  WR  154  108  1429  11
-                14  Diontae Johnson  26  WR  147   86   882   0
-    >>> getScoringData("QB")
-                Player  RshTD  RecTD  TotalTD
-                33         Jalen Hurts*     13      0       13
-                67        Justin Fields      8      0        8
-                70          Josh Allen*      7      0        7
-                78         Daniel Jones      7      0        7
-                112         Joe Burrow*      5      0        5
+        Examples
+        --------
+        >>> getScoringData("WR")
+                    Player  RshTD  RecTD  TotalTD
+                    31         Davante Adams*+      0     14       14
+                    44           Stefon Diggs*      0     11       11
+                    43             A.J. Brown*      0     11       11
+                    52      Justin Jefferson*+      1      8        9
+    53          Ja'Marr Chase*      0      9        9
+        >>> getScoringData("QB")
+                    Player  RshTD  RecTD  TotalTD
+                    33         Jalen Hurts*     13      0       13
+                    67        Justin Fields      8      0        8
+                    70          Josh Allen*      7      0        7
+                    78         Daniel Jones      7      0        7
+                    112         Joe Burrow*      5      0        5
 
     """
     if pos != "WR" and pos != "RB" and pos != "QB" and pos != "K":
@@ -448,8 +277,36 @@ def getScoringData(pos):
     return dfFF
 
 
-# print(getScoringData("RB"))
-# print(getRecData(["TD", "Yds"]))
-# print(getRushData(["Att", "Y/A"]))
-print(getQBData(["TD", "Cmp%"]))
-print(getQBData(["Int", "Age"]))
+def getAggregateTopPlayers():
+    """
+    Returns the best NFL players for Fantasy regardless of position
+
+    Parameters
+    ----------
+    results : str[]
+        The results object that can be dissected for the players
+
+    Returns
+    -------
+    str[]
+        A list of the top players
+
+    Examples
+    --------
+    >>> getAggregateTopPlayers(results)
+    [Joe Burrow, Tom Brady, ...]
+
+    """
+    URL = "https://www.pff.com/fantasy/stats"
+    page = requests.get(URL)
+    soup = BeautifulSoup(page.content, "html.parser")
+    results = soup.find("div", attrs={"class": "g-mb-4"})
+    page = requests.get(URL)
+    soup = BeautifulSoup(page.content, "html.parser")
+    topPlayers = []
+    for result in results:
+        if "nfl/" in result.get("href") and "-fantasy/" in result.get("href"):
+            x = result.text.split()
+            name = x[0] + " " + x[1]
+            topPlayers.append(name)
+    return topPlayers
