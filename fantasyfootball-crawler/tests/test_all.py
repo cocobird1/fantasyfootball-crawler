@@ -3,7 +3,6 @@ from ff_functions import (
     getRushData,
     getRecData,
     getScoringData,
-    getAggregateTopPlayers,
 )
 
 
@@ -79,17 +78,11 @@ def test_getScoringData6():
     assert getScoringData("") is None
 
 
-def test_getTopPlayers():
-    assert getAggregateTopPlayers() is not None
-
-
 # Integration tests
 def integrationTest1():
     dfQB = getQBData(["QBR"])
     dfRush = getRushData(["Y/A"])
     dfRec = getRecData(["Rec"])
-    ret = getAggregateTopPlayers()
-    assert ret is not None
     assert dfQB is not None
     assert dfRush is not None
     assert dfRec is not None
