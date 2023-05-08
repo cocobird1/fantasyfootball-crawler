@@ -40,7 +40,7 @@ from fantasyfootball-crawler import ff_functions as ffc
 metrics = ["TD", "Cmp%"]
 print(ffc.getQBData(metrics))
 ```
-'''python
+```python
 Output:
                 Player  Age   QBR   Cmp%   Yds  TD  Int
                 0    Patrick Mahomes*+   27  77.6   67.1  5250  41   12
@@ -48,8 +48,7 @@ Output:
                 6          Josh Allen*   26  71.4   63.3  4283  35   14
                 7          Geno Smith*   32  60.8   69.8  4282  30   11
                 3        Kirk Cousins*   34  49.9   65.9  4547  29   14
-'''
-
+```
 ### Get Rushing Data
 
 Users can call getRushData(metrics) with specified rushing metrics, to return a DataFrame that sorts based on the rushing metrics.
@@ -64,14 +63,15 @@ print(ffc.getRushData(metrics))
 ```
 
 Output: 
-'''python
+
+```python
             Player   Tm  Age Pos   G  GS  Att   Yds  TD  1D Lng  Y/A   Y/G Fmb
             1    Josh Jacobs*+  LVR   24  RB  17  17  340  1653  12  93  86  4.9  97.2   3
             0  Derrick Henry *  TEN   28  RB  16  16  349  1538  13  65  56  4.4  96.1   6
             2      Nick Chubb*  CLE   27  RB  17  17  302  1525  12  69  41  5.0  89.7   1
             3  Saquon Barkley*  NYG   25  RB  16  16  295  1312  10  62  68  4.4  82.0   1
             7   Miles Sanders*  PHI   25  RB  17  15  259  1269  11  62  40  4.9  74.6   2
- '''
+ ```
             
 ### Get Receiving Data
 
@@ -85,7 +85,7 @@ from fantasyfootball-crawler import ff_functions as ffc
 metrics = ["TD", "Yds"]
 print(ffc.getRecData(metrics))
 ```
-'''python
+```python
 Output:
             Player Age Pos  Tgt  Rec   Yds  TD
             7        Davante Adams*+  30  WR  180  100  1516  14
@@ -93,4 +93,4 @@ Output:
             2          Stefon Diggs*  29  WR  154  108  1429  11
             4           CeeDee Lamb*  23  WR  156  107  1359   9
             21          Amari Cooper  28  WR  132   78  1160   9
-'''
+```
