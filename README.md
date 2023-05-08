@@ -11,6 +11,10 @@ I want to create crawlers for both team and player statistics, and package them 
 # Overview
 Fantasy football is a game played by many Americans, however most are uneducated when it comes to the various in-depth statistics that are needed to "level up" your team, and potentially win big. Most websites gloss over important statistics, or don't include all of the information needed (think FantasyPros), or perhaps include too much information (think pro-football-reference). I want to build a one-stop-shop for these important statistics.
 
+The Fantasy-Football Crawler library can now accept specified user inputs for the top players, and sort through specific players based on specific data. Before, the library would use getQBData(), getRBData(), and getWRData() to simply return DataFrames ranked and sorted based on factors that I personally thought were the most relevant. However, now, users can use getQBData(metrics), getRushData(metrics), and getRecMetrics(metrics) to sort QBs, receivers, and runners based on specified parameters (ex. Yds, Att), and receiving and rushing are both not limited to one position, but include all rushers and receivers across the league (ex. Rushing Data can include QBs, RBs, and WRs even), which finally allows us to incorporate players like Travis Kelce into the receiving data.
+
+Further, an aggregate scoring method was also implemented, where users can specify a position to get a DataFrame that holds the top positional players in terms of Rushing Touchdowns, Receiving Touchdowns, and Total Touchdowns, which can be very helpful in terms of fantasy.
+
 This project is a pure python project using modern tooling. It uses a `Makefile` as a command registry, with the following commands:
 - `make`: list available commands
 - `make develop`: install and build this library and its dependencies using `pip`
@@ -42,12 +46,12 @@ print(ffc.getQBData(metrics))
 ```
 Output:
 ```python
-                Player  Age   QBR   Cmp%   Yds  TD  Int
-                0    Patrick Mahomes*+   27  77.6   67.1  5250  41   12
-                4          Joe Burrow*   26  58.7   68.3  4475  35   12
-                6          Josh Allen*   26  71.4   63.3  4283  35   14
-                7          Geno Smith*   32  60.8   69.8  4282  30   11
-                3        Kirk Cousins*   34  49.9   65.9  4547  29   14
+Player  Age   QBR   Cmp%   Yds  TD  Int
+0    Patrick Mahomes*+   27  77.6   67.1  5250  41   12
+4          Joe Burrow*   26  58.7   68.3  4475  35   12
+6          Josh Allen*   26  71.4   63.3  4283  35   14
+7          Geno Smith*   32  60.8   69.8  4282  30   11
+3        Kirk Cousins*   34  49.9   65.9  4547  29   14
 ```
 ### Get Rushing Data
 
