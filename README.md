@@ -40,8 +40,8 @@ from fantasyfootball-crawler import ff_functions as ffc
 metrics = ["TD", "Cmp%"]
 print(ffc.getQBData(metrics))
 ```
-```python
 Output:
+```python
                 Player  Age   QBR   Cmp%   Yds  TD  Int
                 0    Patrick Mahomes*+   27  77.6   67.1  5250  41   12
                 4          Joe Burrow*   26  58.7   68.3  4475  35   12
@@ -61,9 +61,7 @@ from fantasyfootball-crawler import ff_functions as ffc
 metrics = ["Yds", "Att"]
 print(ffc.getRushData(metrics))
 ```
-
 Output: 
-
 ```python
             Player   Tm  Age Pos   G  GS  Att   Yds  TD  1D Lng  Y/A   Y/G Fmb
             1    Josh Jacobs*+  LVR   24  RB  17  17  340  1653  12  93  86  4.9  97.2   3
@@ -85,8 +83,8 @@ from fantasyfootball-crawler import ff_functions as ffc
 metrics = ["TD", "Yds"]
 print(ffc.getRecData(metrics))
 ```
-```python
 Output:
+```python
             Player Age Pos  Tgt  Rec   Yds  TD
             7        Davante Adams*+  30  WR  180  100  1516  14
             11           A.J. Brown*  25  WR  145   88  1496  11
