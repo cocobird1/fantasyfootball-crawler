@@ -42,36 +42,32 @@ gloss over important statistics, or don't include all of the information needed
 I want to build a one-stop-shop for these important statistics. Essentially, this
 open source library will give you the best players at each position and filter based
 off of statistics that I deem most important to each position in FF.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This project is under active development.</p>
+<p>The Fantasy-Football Crawler library can now accept specified user inputs for the top players,
+and sort through specific players based on specific data. Before, the library would use getQBData(),
+getRBData(), and getWRData() to simply return DataFrames ranked and sorted based on factors that
+I personally thought were the most relevant. However, now, users can use getQBData(metrics),
+getRushData(metrics), and getRecMetrics(metrics) to sort QBs, receivers, and runners based on
+specified parameters (ex. Yds, Att), and receiving and rushing are both not limited to one position,
+but include all rushers and receivers across the league (ex. Rushing Data can include QBs, RBs, and WRs even),
+which finally allows us to incorporate players like Travis Kelce into the receiving data.</p>
+<p>Further, an aggregate scoring method was also implemented, where users can specify a position
+to get a DataFrame that holds the top positional players in terms of Rushing Touchdowns,
+Receiving Touchdowns, and Total Touchdowns, which can be very helpful in terms of fantasy.
+.. note:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="n">project</span> <span class="ow">is</span> <span class="n">under</span> <span class="n">active</span> <span class="n">development</span><span class="o">.</span>
+</pre></div>
 </div>
 <p><strong>How to Install Library</strong>
 To install the library, navigate to your console/terminal and run the command
-pip install fantasyfootball_crawler.tar.gz</p>
+pip install fantasyfootball-crawler</p>
+<p>Then, add this statement to the top of your script:
+import fantasyfootball-crawler</p>
+<p>Then, you can use the functions! They are listed below.</p>
 <p><strong>How to Use Library</strong>
-To use the library, call the functions in FF_functions after you've installed
+To use the library, call the functions in functions after you've installed
 the library. Make sure to import them into your code files first.</p>
 <p><strong>Functions and Docstrings</strong></p>
 <span class="target" id="module-ff_functions"></span><dl class="py function">
-<dt class="sig sig-object py" id="ff_functions.getAggregateTopPlayers">
-<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getAggregateTopPlayers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getAggregateTopPlayers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the best NFL players for Fantasy regardless of position</p>
-<dl class="simple">
-<dt>results<span class="classifier">str[]</span></dt><dd><p>The results object that can be dissected for the players</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>str[]</dt><dd><p>A list of the top players</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getAggregateTopPlayers</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="go">[Joe Burrow, Tom Brady, ...]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="ff_functions.getQBData">
 <span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getQBData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getQBData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DataFrame of the best QB's and their various stats, filtered and ordered on specific variables</p>
@@ -165,8 +161,7 @@ their various stats, filtered and ordered on specific variables</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="ff_functions.getScoringData">
 <span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getScoringData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getScoringData" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Returns a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.</p>
+<dd><p>Returns a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.</p>
 <dl class="simple">
 <dt>String</dt><dd><p>Pos string, which determines which position to show the top scorers for</p>
 </dd>
@@ -181,11 +176,8 @@ their various stats, filtered and ordered on specific variables</p>
 <span class="go">            44           Stefon Diggs*      0     11       11</span>
 <span class="go">            43             A.J. Brown*      0     11       11</span>
 <span class="go">            52      Justin Jefferson*+      1      8        9</span>
-</pre></div>
-</div>
-</div></blockquote>
-<dl>
-<dt>53          Ja'Marr Chase*      0      9        9</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getScoringData</span><span class="p">(</span><span class="s2">&quot;QB&quot;</span><span class="p">)</span>
+<span class="go">            53          Ja&#39;Marr Chase*      0      9        9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getScoringData</span><span class="p">(</span><span class="s2">&quot;QB&quot;</span><span class="p">)</span>
 <span class="go">            Player  RshTD  RecTD  TotalTD</span>
 <span class="go">            33         Jalen Hurts*     13      0       13</span>
 <span class="go">            67        Justin Fields      8      0        8</span>
@@ -194,8 +186,6 @@ their various stats, filtered and ordered on specific variables</p>
 <span class="go">            112         Joe Burrow*      5      0        5</span>
 </pre></div>
 </div>
-</dd>
-</dl>
 </dd></dl>
 
 </section>
