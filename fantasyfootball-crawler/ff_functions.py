@@ -34,6 +34,9 @@ def getQBData(metrics):
                     13            Derek Carr*   31   55.5   60.8  3522  24   14
                     6             Josh Allen*   26   71.4   63.3  4283  35   14
     """
+    if len(metrics) == 0:
+        print("No Metrics Given")
+        return None
     page = requests.get("https://www.pro-football-reference.com/years/2022/passing.htm")
     soup = BeautifulSoup(page.content, "html.parser")
     categories = soup.findAll('tr')[0]
@@ -217,34 +220,34 @@ def getRecData(metrics):
 
 def getScoringData(pos):
     """
-        Returns a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.
+    Returns a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.
 
-        Parameters
-        ----------
-        String
-            Pos string, which determines which position to show the top scorers for
+    Parameters
+    ----------
+    String
+        Pos string, which determines which position to show the top scorers for
 
-        Returns
-        -------
-        DataFrame
-            a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.
+    Returns
+    -------
+    DataFrame
+        a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.
 
-        Examples
-        --------
-        >>> getScoringData("WR")
-                    Player  RshTD  RecTD  TotalTD
-                    31         Davante Adams*+      0     14       14
-                    44           Stefon Diggs*      0     11       11
-                    43             A.J. Brown*      0     11       11
-                    52      Justin Jefferson*+      1      8        9
-    53          Ja'Marr Chase*      0      9        9
-        >>> getScoringData("QB")
-                    Player  RshTD  RecTD  TotalTD
-                    33         Jalen Hurts*     13      0       13
-                    67        Justin Fields      8      0        8
-                    70          Josh Allen*      7      0        7
-                    78         Daniel Jones      7      0        7
-                    112         Joe Burrow*      5      0        5
+    Examples
+    --------
+    >>> getScoringData("WR")
+                Player  RshTD  RecTD  TotalTD
+                31         Davante Adams*+      0     14       14
+                44           Stefon Diggs*      0     11       11
+                43             A.J. Brown*      0     11       11
+                52      Justin Jefferson*+      1      8        9
+                53          Ja'Marr Chase*      0      9        9
+    >>> getScoringData("QB")
+                Player  RshTD  RecTD  TotalTD
+                33         Jalen Hurts*     13      0       13
+                67        Justin Fields      8      0        8
+                70          Josh Allen*      7      0        7
+                78         Daniel Jones      7      0        7
+                112         Joe Burrow*      5      0        5
 
     """
     if pos != "WR" and pos != "RB" and pos != "QB" and pos != "K":
@@ -275,38 +278,3 @@ def getScoringData(pos):
     df['TotalTD'] = df['RshTD'] + df['RecTD']
     dfFF = df.loc[:, ["Player", "RshTD", "RecTD", "TotalTD"]].sort_values(by=['TotalTD'], ascending=False)
     return dfFF
-
-
-def getAggregateTopPlayers():
-    """
-    Returns the best NFL players for Fantasy regardless of position
-
-    Parameters
-    ----------
-    results : str[]
-        The results object that can be dissected for the players
-
-    Returns
-    -------
-    str[]
-        A list of the top players
-
-    Examples
-    --------
-    >>> getAggregateTopPlayers(results)
-    [Joe Burrow, Tom Brady, ...]
-
-    """
-    URL = "https://www.pff.com/fantasy/stats"
-    page = requests.get(URL)
-    soup = BeautifulSoup(page.content, "html.parser")
-    results = soup.find("div", attrs={"class": "g-mb-4"})
-    page = requests.get(URL)
-    soup = BeautifulSoup(page.content, "html.parser")
-    topPlayers = []
-    for result in results:
-        if "nfl/" in result.get("href") and "-fantasy/" in result.get("href"):
-            x = result.text.split()
-            name = x[0] + " " + x[1]
-            topPlayers.append(name)
-    return topPlayers
