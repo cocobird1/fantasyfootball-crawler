@@ -4,14 +4,16 @@
 <html lang="python">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Welcome to fantasyfootball-crawler&#39;s documentation! &#8212; Documentation 1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -51,97 +53,89 @@ pip install fantasyfootball_crawler.tar.gz</p>
 To use the library, call the functions in FF_functions after you've installed
 the library. Make sure to import them into your code files first.</p>
 <p><strong>Functions and Docstrings</strong></p>
-<span class="target" id="module-fantasyfootball_crawler.ff_functions"></span><dl class="py function">
-<dt class="sig sig-object py" id="fantasyfootball_crawler.ff_functions.getAggregateTopPlayers">
-<span class="sig-prename descclassname"><span class="pre">fantasyfootball_crawler.ff_functions.</span></span><span class="sig-name descname"><span class="pre">getAggregateTopPlayers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fantasyfootball_crawler.ff_functions.getAggregateTopPlayers" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="module-ff_functions"></span><dl class="py function">
+<dt class="sig sig-object py" id="ff_functions.getAggregateTopPlayers">
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getAggregateTopPlayers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getAggregateTopPlayers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the best NFL players for Fantasy regardless of position</p>
-<section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>results<span class="classifier">str[]</span></dt><dd><p>The results object that can be dissected for the players</p>
 </dd>
 </dl>
-</section>
-<section id="returns">
-<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>str[]</dt><dd><p>A list of the top players</p>
 </dd>
 </dl>
-</section>
-<section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getAggregateTopPlayers</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 <span class="go">[Joe Burrow, Tom Brady, ...]</span>
 </pre></div>
 </div>
-</section>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="fantasyfootball_crawler.ff_functions.getQBData">
-<span class="sig-prename descclassname"><span class="pre">fantasyfootball_crawler.ff_functions.</span></span><span class="sig-name descname"><span class="pre">getQBData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fantasyfootball_crawler.ff_functions.getQBData" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ff_functions.getQBData">
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getQBData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getQBData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DataFrame of the best QB's and their various stats, filtered and ordered on specific variables</p>
-<section id="id1">
-<h2>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p>None</p>
-</section>
-<section id="id2">
-<h2>Returns<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>String Array</dt><dd><p>Metrics, a String Array of Metrics used to sort the dataframe, from the given statistics in the DF.</p>
+</dd>
+</dl>
 <dl class="simple">
 <dt>DataFrame</dt><dd><p>A a DataFrame of the best QB's and their various stats, filtered and ordered on specific variables</p>
 </dd>
 </dl>
-</section>
-<section id="id3">
-<h2>Examples<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getQBData</span><span class="p">()</span>
-<span class="go">              Player Age   QBR  Cmp%   Yds  TD Int                                                                                                                      </span>
-<span class="go">                0  Patrick Mahomes*+  27  77.6  67.1  5250  41  12</span>
-<span class="go">                4        Joe Burrow*  26  58.7  68.3  4475  35  12</span>
-<span class="go">                6        Josh Allen*  26  71.4  63.3  4283  35  14</span>
-<span class="go">                7        Geno Smith*  32  60.8  69.8  4282  30  11</span>
-<span class="go">                3      Kirk Cousins*  34  49.9  65.9  4547  29  14</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getQBData</span><span class="p">([</span><span class="s2">&quot;TD&quot;</span><span class="p">,</span> <span class="s2">&quot;Cmp%&quot;</span><span class="p">])</span>
+<span class="go">                Player  Age   QBR   Cmp%   Yds  TD  Int</span>
+<span class="go">                0    Patrick Mahomes*+   27  77.6   67.1  5250  41   12</span>
+<span class="go">                4          Joe Burrow*   26  58.7   68.3  4475  35   12</span>
+<span class="go">                6          Josh Allen*   26  71.4   63.3  4283  35   14</span>
+<span class="go">                7          Geno Smith*   32  60.8   69.8  4282  30   11</span>
+<span class="go">                3        Kirk Cousins*   34  49.9   65.9  4547  29   14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getQBData</span><span class="p">([</span><span class="s2">&quot;Int&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">])</span>
+<span class="go">               Player  Age    QBR   Cmp%   Yds  TD  Int</span>
+<span class="go">                19           Dak Prescott   29   57.9   66.2  2860  23   15</span>
+<span class="go">                15            Davis Mills   24   33.1   61.0  3118  17   15</span>
+<span class="go">                3           Kirk Cousins*   34   49.9   65.9  4547  29   14</span>
+<span class="go">                13            Derek Carr*   31   55.5   60.8  3522  24   14</span>
+<span class="go">                6             Josh Allen*   26   71.4   63.3  4283  35   14</span>
 </pre></div>
 </div>
-</section>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="fantasyfootball_crawler.ff_functions.getRBData">
-<span class="sig-prename descclassname"><span class="pre">fantasyfootball_crawler.ff_functions.</span></span><span class="sig-name descname"><span class="pre">getRBData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fantasyfootball_crawler.ff_functions.getRBData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a DataFrame of the best RB's and their various stats, filtered and ordered on specific variables</p>
-<section id="id4">
-<h2>Parameters<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
-<p>None</p>
-</section>
-<section id="id5">
-<h2>Returns<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<dt class="sig sig-object py" id="ff_functions.getRecData">
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getRecData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getRecData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a DataFrame of the best receivers and their various stats, filtered and ordered on specific variables</p>
 <dl class="simple">
-<dt>DataFrame</dt><dd><p>A a DataFrame of the best RB's and their various stats, filtered and ordered on specific variables</p>
+<dt>String Array</dt><dd><p>Metrics, a String Array of Metrics used to sort the dataframe, from the given statistics in the DF.</p>
 </dd>
 </dl>
-</section>
-<section id="id6">
-<h2>Examples<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getRBData</span><span class="p">()</span>
-<span class="go">            Player   Tm  Age Pos   G  GS  Att   Yds  TD  1D Lng  Y/A   Y/G Fmb</span>
-<span class="go">            1    Josh Jacobs*+  LVR   24  RB  17  17  340  1653  12  93  86  4.9  97.2   3</span>
-<span class="go">            0  Derrick Henry *  TEN   28  RB  16  16  349  1538  13  65  56  4.4  96.1   6</span>
-<span class="go">            2      Nick Chubb*  CLE   27  RB  17  17  302  1525  12  69  41  5.0  89.7   1</span>
-<span class="go">            3  Saquon Barkley*  NYG   25  RB  16  16  295  1312  10  62  68  4.4  82.0   1</span>
-<span class="go">            7   Miles Sanders*  PHI   25  RB  17  15  259  1269  11  62  40  4.9  74.6   2</span>
+<dl class="simple">
+<dt>DataFrame</dt><dd><p>A a DataFrame of the best receivers (yes, that includes Travis Kelce) and
+their various stats, filtered and ordered on specific variables</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getRecData</span><span class="p">([</span><span class="s2">&quot;Tgt&quot;</span><span class="p">,</span> <span class="s2">&quot;Rec&quot;</span><span class="p">])</span>
+<span class="go">            Player Age Pos  Tgt  Rec   Yds  TD</span>
+<span class="go">            7   Davante Adams*+  30  WR  180  100  1516  14</span>
+<span class="go">            0     Tyreek Hill*+  28  WR  170  119  1710   7</span>
+<span class="go">            4      CeeDee Lamb*  23  WR  156  107  1359   9</span>
+<span class="go">            2     Stefon Diggs*  29  WR  154  108  1429  11</span>
+<span class="go">            14  Diontae Johnson  26  WR  147   86   882   0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getRecData</span><span class="p">([</span><span class="s2">&quot;TD&quot;</span><span class="p">,</span> <span class="s2">&quot;Yds&quot;</span><span class="p">])</span>
+<span class="go">            Player Age Pos  Tgt  Rec   Yds  TD</span>
+<span class="go">            7        Davante Adams*+  30  WR  180  100  1516  14</span>
+<span class="go">            11           A.J. Brown*  25  WR  145   88  1496  11</span>
+<span class="go">            2          Stefon Diggs*  29  WR  154  108  1429  11</span>
+<span class="go">            4           CeeDee Lamb*  23  WR  156  107  1359   9</span>
+<span class="go">            21          Amari Cooper  28  WR  132   78  1160   9</span>
 </pre></div>
 </div>
-</section>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="fantasyfootball_crawler.ff_functions.getResults">
-<span class="sig-prename descclassname"><span class="pre">fantasyfootball_crawler.ff_functions.</span></span><span class="sig-name descname"><span class="pre">getResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hrefBool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fantasyfootball_crawler.ff_functions.getResults" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ff_functions.getResults">
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hrefBool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getResults" title="Permalink to this definition">¶</a></dt>
 <dd><p>A results table of a soup query</p>
-<section id="id7">
-<h2>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>label1<span class="classifier">str</span></dt><dd><p>The label used to query the HTML result</p>
 </dd>
@@ -150,149 +144,137 @@ the library. Make sure to import them into your code files first.</p>
 <dt>soup<span class="classifier">BeautifulSoup</span></dt><dd><p>The soup object to query the website</p>
 </dd>
 </dl>
-</section>
-<section id="id8">
-<h2>Returns<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>str[]</dt><dd><p>A list of strings that depict the results queried</p>
 </dd>
 </dl>
-</section>
-<section id="id9">
-<h2>Examples<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getResults</span><span class="p">(</span><span class="s2">&quot;ref&quot;</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="n">soup</span><span class="p">)</span>
 <span class="go">str[] containing results of the website</span>
 </pre></div>
 </div>
-</section>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="fantasyfootball_crawler.ff_functions.getWRData">
-<span class="sig-prename descclassname"><span class="pre">fantasyfootball_crawler.ff_functions.</span></span><span class="sig-name descname"><span class="pre">getWRData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fantasyfootball_crawler.ff_functions.getWRData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a DataFrame of the best WR's and their various stats, filtered and ordered on specific variables</p>
-<section id="id10">
-<h2>Parameters<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
-<p>None</p>
-</section>
-<section id="id11">
-<h2>Returns<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
+<dt class="sig sig-object py" id="ff_functions.getRushData">
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getRushData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getRushData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a DataFrame of the best RB's and their various stats, filtered and ordered on specific variables</p>
 <dl class="simple">
-<dt>DataFrame</dt><dd><p>A a DataFrame of the best WR's and their various stats, filtered and ordered on specific variables</p>
+<dt>String Array</dt><dd><p>Metrics, a String Array of Metrics used to sort the dataframe, from the given statistics in the DF.</p>
 </dd>
 </dl>
-</section>
-<section id="id12">
-<h2>Examples<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h2>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getWRData</span><span class="p">()</span>
+<dl class="simple">
+<dt>DataFrame</dt><dd><p>A a DataFrame of the best RB's and their various stats, filtered and ordered on specific variables</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getRushData</span><span class="p">([</span><span class="s2">&quot;Yds&quot;</span><span class="p">,</span> <span class="s2">&quot;Att&quot;</span><span class="p">])</span>
+<span class="go">            Player   Tm  Age Pos   G  GS  Att   Yds  TD  1D Lng  Y/A   Y/G Fmb</span>
+<span class="go">            1    Josh Jacobs*+  LVR   24  RB  17  17  340  1653  12  93  86  4.9  97.2   3</span>
+<span class="go">            0  Derrick Henry *  TEN   28  RB  16  16  349  1538  13  65  56  4.4  96.1   6</span>
+<span class="go">            2      Nick Chubb*  CLE   27  RB  17  17  302  1525  12  69  41  5.0  89.7   1</span>
+<span class="go">            3  Saquon Barkley*  NYG   25  RB  16  16  295  1312  10  62  68  4.4  82.0   1</span>
+<span class="go">            7   Miles Sanders*  PHI   25  RB  17  15  259  1269  11  62  40  4.9  74.6   2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getRushData</span><span class="p">([</span><span class="s2">&quot;Att&quot;</span><span class="p">,</span> <span class="s2">&quot;Y/A&quot;</span><span class="p">])</span>
+<span class="go">            Player    Tm  Age   Pos   G    GS  Att   Yds  TD  1D  Lng  Y/A   Y/G  Fmb</span>
+<span class="go">            0   Derrick Henry*   TEN   28    RB  16    16  349  1538  13  65   56  4.4  96.1    6</span>
+<span class="go">            1   Josh Jacobs*+   LVR   24    RB  17    17  340  1653  12  93   86  4.9  97.2    3</span>
+<span class="go">            2   Nick Chubb*   CLE   27    RB  17    17  302  1525  12  69   41  5.0  89.7    1</span>
+<span class="go">            3   Saquon Barkley*   NYG   25    RB  16    16  295  1312  10  62   68  4.4  82.0    1</span>
+<span class="go">            4   Najee Harris   PIT   24    RB  17    17  272  1034   7  45   36  3.8  60.8    3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ff_functions.getScoringData">
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getScoringData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getScoringData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.</p>
+<dl class="simple">
+<dt>String</dt><dd><p>Pos string, which determines which position to show the top scorers for</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>DataFrame</dt><dd><p>a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getScoringData</span><span class="p">(</span><span class="s2">&quot;WR&quot;</span><span class="p">)</span>
 <span class="go">            Player Age Pos  Tgt  Rec   Yds  TD</span>
 <span class="go">            7   Davante Adams*+  30  WR  180  100  1516  14</span>
 <span class="go">            0     Tyreek Hill*+  28  WR  170  119  1710   7</span>
 <span class="go">            4      CeeDee Lamb*  23  WR  156  107  1359   9</span>
 <span class="go">            2     Stefon Diggs*  29  WR  154  108  1429  11</span>
 <span class="go">            14  Diontae Johnson  26  WR  147   86   882   0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getScoringData</span><span class="p">(</span><span class="s2">&quot;QB&quot;</span><span class="p">)</span>
+<span class="go">            Player  RshTD  RecTD  TotalTD</span>
+<span class="go">            33         Jalen Hurts*     13      0       13</span>
+<span class="go">            67        Justin Fields      8      0        8</span>
+<span class="go">            70          Josh Allen*      7      0        7</span>
+<span class="go">            78         Daniel Jones      7      0        7</span>
+<span class="go">            112         Joe Burrow*      5      0        5</span>
 </pre></div>
 </div>
-</section>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="fantasyfootball_crawler.ff_functions.read_dict">
-<span class="sig-prename descclassname"><span class="pre">fantasyfootball_crawler.ff_functions.</span></span><span class="sig-name descname"><span class="pre">read_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fantasyfootball_crawler.ff_functions.read_dict" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ff_functions.read_dict">
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">read_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.read_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string of the keys in the website dict</p>
-<section id="id13">
-<h2>Parameters<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h2>
 <p>None</p>
-</section>
-<section id="id14">
-<h2>Returns<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>str</dt><dd><p>A concactenated string that contains all of the key values</p>
 </dd>
 </dl>
-</section>
-<section id="id15">
-<h2>Examples<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">read_dict</span><span class="p">()</span>
 <span class="go">&quot;main container&quot;</span>
 </pre></div>
 </div>
-</section>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="fantasyfootball_crawler.ff_functions.read_nextgen">
-<span class="sig-prename descclassname"><span class="pre">fantasyfootball_crawler.ff_functions.</span></span><span class="sig-name descname"><span class="pre">read_nextgen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fantasyfootball_crawler.ff_functions.read_nextgen" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ff_functions.read_nextgen">
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">read_nextgen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.read_nextgen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the results for the nextGen website specifically</p>
-<section id="id16">
-<h2>Parameters<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
 <p>None</p>
-</section>
-<section id="id17">
-<h2>Returns<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>str[]</dt><dd><p>A results list that contains players</p>
 </dd>
 </dl>
-</section>
-<section id="id18">
-<h2>Examples<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">read_nextgen</span><span class="p">()</span>
 <span class="go">[Joe Burrow, Tom Brady, ...]</span>
 </pre></div>
 </div>
-</section>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="fantasyfootball_crawler.ff_functions.read_pff">
-<span class="sig-prename descclassname"><span class="pre">fantasyfootball_crawler.ff_functions.</span></span><span class="sig-name descname"><span class="pre">read_pff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fantasyfootball_crawler.ff_functions.read_pff" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ff_functions.read_pff">
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">read_pff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.read_pff" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the results for the PFF website specifically</p>
-<section id="id19">
-<h2>Parameters<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h2>
 <p>None</p>
-</section>
-<section id="id20">
-<h2>Returns<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>str[]</dt><dd><p>A results list that contains players</p>
 </dd>
 </dl>
-</section>
-<section id="id21">
-<h2>Examples<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">read_pff</span><span class="p">()</span>
 <span class="go">[Joe Burrow, Tom Brady, ...]</span>
 </pre></div>
 </div>
-</section>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="fantasyfootball_crawler.ff_functions.soupInit">
-<span class="sig-prename descclassname"><span class="pre">fantasyfootball_crawler.ff_functions.</span></span><span class="sig-name descname"><span class="pre">soupInit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">URL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fantasyfootball_crawler.ff_functions.soupInit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ff_functions.soupInit">
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">soupInit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">URL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.soupInit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a BeautifulSoup object</p>
-<section id="id22">
-<h2>Parameters<a class="headerlink" href="#id22" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>URL<span class="classifier">str</span></dt><dd><p>The URL of the page desired to be queried</p>
 </dd>
 </dl>
-</section>
-<section id="id23">
-<h2>Returns<a class="headerlink" href="#id23" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>BeautifulSoup</dt><dd><p>A BeautifulSoup object that queries the specified URL</p>
 </dd>
 </dl>
-</section>
-<section id="id24">
-<h2>Examples<a class="headerlink" href="#id24" title="Permalink to this heading">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">soupInit</span><span class="p">(</span><span class="s2">&quot;bing.com&quot;</span><span class="p">)</span>
 <span class="go">BeautifulSoup object</span>
 </pre></div>
 </div>
-</section>
 </dd></dl>
 
 </section>
@@ -348,8 +330,8 @@ the library. Make sure to import them into your code files first.</p>
       &copy;2023, William Wang.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="_sources/index.rst.txt"
