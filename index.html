@@ -55,7 +55,7 @@ the library. Make sure to import them into your code files first.</p>
 <p><strong>Functions and Docstrings</strong></p>
 <span class="target" id="module-ff_functions"></span><dl class="py function">
 <dt class="sig sig-object py" id="ff_functions.getAggregateTopPlayers">
-<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getAggregateTopPlayers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getAggregateTopPlayers" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getAggregateTopPlayers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getAggregateTopPlayers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the best NFL players for Fantasy regardless of position</p>
 <dl class="simple">
 <dt>results<span class="classifier">str[]</span></dt><dd><p>The results object that can be dissected for the players</p>
@@ -133,28 +133,6 @@ their various stats, filtered and ordered on specific variables</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="ff_functions.getResults">
-<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hrefBool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getResults" title="Permalink to this definition">¶</a></dt>
-<dd><p>A results table of a soup query</p>
-<dl class="simple">
-<dt>label1<span class="classifier">str</span></dt><dd><p>The label used to query the HTML result</p>
-</dd>
-<dt>hrefBool<span class="classifier">str</span></dt><dd><p>Another label to query the desired results</p>
-</dd>
-<dt>soup<span class="classifier">BeautifulSoup</span></dt><dd><p>The soup object to query the website</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>str[]</dt><dd><p>A list of strings that depict the results queried</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getResults</span><span class="p">(</span><span class="s2">&quot;ref&quot;</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="n">soup</span><span class="p">)</span>
-<span class="go">str[] containing results of the website</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="ff_functions.getRushData">
 <span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getRushData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getRushData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DataFrame of the best RB's and their various stats, filtered and ordered on specific variables</p>
@@ -187,7 +165,8 @@ their various stats, filtered and ordered on specific variables</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="ff_functions.getScoringData">
 <span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">getScoringData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.getScoringData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.</p>
+<dd><blockquote>
+<div><p>Returns a DataFrame of the highest point scorers in the NFL, of RB, WR, and K, depending on the parameter given.</p>
 <dl class="simple">
 <dt>String</dt><dd><p>Pos string, which determines which position to show the top scorers for</p>
 </dd>
@@ -197,13 +176,16 @@ their various stats, filtered and ordered on specific variables</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getScoringData</span><span class="p">(</span><span class="s2">&quot;WR&quot;</span><span class="p">)</span>
-<span class="go">            Player Age Pos  Tgt  Rec   Yds  TD</span>
-<span class="go">            7   Davante Adams*+  30  WR  180  100  1516  14</span>
-<span class="go">            0     Tyreek Hill*+  28  WR  170  119  1710   7</span>
-<span class="go">            4      CeeDee Lamb*  23  WR  156  107  1359   9</span>
-<span class="go">            2     Stefon Diggs*  29  WR  154  108  1429  11</span>
-<span class="go">            14  Diontae Johnson  26  WR  147   86   882   0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">getScoringData</span><span class="p">(</span><span class="s2">&quot;QB&quot;</span><span class="p">)</span>
+<span class="go">            Player  RshTD  RecTD  TotalTD</span>
+<span class="go">            31         Davante Adams*+      0     14       14</span>
+<span class="go">            44           Stefon Diggs*      0     11       11</span>
+<span class="go">            43             A.J. Brown*      0     11       11</span>
+<span class="go">            52      Justin Jefferson*+      1      8        9</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl>
+<dt>53          Ja'Marr Chase*      0      9        9</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getScoringData</span><span class="p">(</span><span class="s2">&quot;QB&quot;</span><span class="p">)</span>
 <span class="go">            Player  RshTD  RecTD  TotalTD</span>
 <span class="go">            33         Jalen Hurts*     13      0       13</span>
 <span class="go">            67        Justin Fields      8      0        8</span>
@@ -212,69 +194,8 @@ their various stats, filtered and ordered on specific variables</p>
 <span class="go">            112         Joe Burrow*      5      0        5</span>
 </pre></div>
 </div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ff_functions.read_dict">
-<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">read_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.read_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a string of the keys in the website dict</p>
-<p>None</p>
-<dl class="simple">
-<dt>str</dt><dd><p>A concactenated string that contains all of the key values</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">read_dict</span><span class="p">()</span>
-<span class="go">&quot;main container&quot;</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ff_functions.read_nextgen">
-<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">read_nextgen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.read_nextgen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the results for the nextGen website specifically</p>
-<p>None</p>
-<dl class="simple">
-<dt>str[]</dt><dd><p>A results list that contains players</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">read_nextgen</span><span class="p">()</span>
-<span class="go">[Joe Burrow, Tom Brady, ...]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ff_functions.read_pff">
-<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">read_pff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.read_pff" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the results for the PFF website specifically</p>
-<p>None</p>
-<dl class="simple">
-<dt>str[]</dt><dd><p>A results list that contains players</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">read_pff</span><span class="p">()</span>
-<span class="go">[Joe Burrow, Tom Brady, ...]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ff_functions.soupInit">
-<span class="sig-prename descclassname"><span class="pre">ff_functions.</span></span><span class="sig-name descname"><span class="pre">soupInit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">URL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ff_functions.soupInit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a BeautifulSoup object</p>
-<dl class="simple">
-<dt>URL<span class="classifier">str</span></dt><dd><p>The URL of the page desired to be queried</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>BeautifulSoup</dt><dd><p>A BeautifulSoup object that queries the specified URL</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">soupInit</span><span class="p">(</span><span class="s2">&quot;bing.com&quot;</span><span class="p">)</span>
-<span class="go">BeautifulSoup object</span>
-</pre></div>
-</div>
 </dd></dl>
 
 </section>
