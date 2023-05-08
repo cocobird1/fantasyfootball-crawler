@@ -5,3 +5,17 @@ include SECURITY.md
 include __init__.py
 recursive-include fantasyfootball-crawler *.py
 recursive-include fantasyfootball-crawler/tests *.py
+recursive-include dist *.gz
+recursive-include website *.DS_Store
+recursive-include website *.bat
+recursive-include website *.buildinfo
+recursive-include website *.css
+recursive-include website *.doctree
+recursive-include website *.html
+recursive-include website *.inv
+recursive-include website *.js
+recursive-include website *.pickle
+recursive-include website *.png
+recursive-include website *.rst
+recursive-include website *.txt
+recursive-include website Makefile

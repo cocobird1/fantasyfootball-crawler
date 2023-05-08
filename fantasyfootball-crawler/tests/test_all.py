@@ -1,11 +1,11 @@
 from ff_functions import (
     getQBData,
-    getRBData,
-    getWRData,
+    getRushData,
+    getRecData,
+    getScoringData,
     getResults,
     getAggregateTopPlayers,
     read_pff,
-    get_Dict,
     read_dict,
     soupInit,
 )
@@ -25,23 +25,23 @@ def test_getTopPlayers():
 
 
 def test_getQBData():
-    assert getQBData() is not None
+    assert getQBData(["QBR", "Int"]) is not None
 
 
-def test_getRBData():
-    assert getRBData() is not None
+def test_getRushData():
+    assert getRushData(["Y/A", "Yds"]) is not None
 
 
-def test_getWRData():
-    assert getWRData() is not None
+def test_getRecData():
+    assert getRecData(["Rec", "Yds"]) is not None
+
+
+def test_getScoringData():
+    assert getScoringData("WR") is not None
 
 
 def test_pff_empty():
     assert len(read_pff()) != 0
-
-
-def test_dict():
-    assert get_Dict() != 0
 
 
 def test_read_dict():
