@@ -6,7 +6,7 @@ I want to create crawlers for both team and player statistics, and package them 
 ![github issues](https://img.shields.io/github/issues/cocobird1/fantasyfootball-crawler)
 [![Build Status](https://github.com/cocobird1/fantasyfootball-crawler/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/cocobird1/fantasyfootball-crawler/actions?query=workflow%3A%22Build+Status%22)
 [![codecov](https://codecov.io/gh/cocobird1/fantasyfootball-crawler/branch/main/graph/badge.svg)](https://codecov.io/gh/cocobird1/fantasyfootball-crawler)
-[![PyPI](https://img.shields.io/pypi/v/fantasyfootball-crawler)](https://pypi.org/project/fantasyfootball-crawler/):
+[![PyPI](https://img.shields.io/pypi/v/fantasyfootball-crawler)](https://pypi.org/project/fantasyfootball-crawler/)
 [![Documentation](https://img.shields.io/badge/GitHub%20Page-Link-brightgreen)](https://cocobird1.github.io/fantasyfootball-crawler/)
 [![version](https://img.shields.io/badge/Release-v0.1.2-green)](https://cocobird1.github.io/fantasyfootball-crawler/)
 # Overview
