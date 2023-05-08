@@ -63,12 +63,12 @@ print(ffc.getRushData(metrics))
 ```
 Output: 
 ```python
-            Player   Tm  Age Pos   G  GS  Att   Yds  TD  1D Lng  Y/A   Y/G Fmb
-            1    Josh Jacobs*+  LVR   24  RB  17  17  340  1653  12  93  86  4.9  97.2   3
-            0  Derrick Henry *  TEN   28  RB  16  16  349  1538  13  65  56  4.4  96.1   6
-            2      Nick Chubb*  CLE   27  RB  17  17  302  1525  12  69  41  5.0  89.7   1
-            3  Saquon Barkley*  NYG   25  RB  16  16  295  1312  10  62  68  4.4  82.0   1
-            7   Miles Sanders*  PHI   25  RB  17  15  259  1269  11  62  40  4.9  74.6   2
+Player   Tm  Age Pos   G  GS  Att   Yds  TD  1D Lng  Y/A   Y/G Fmb
+1    Josh Jacobs*+  LVR   24  RB  17  17  340  1653  12  93  86  4.9  97.2   3
+0  Derrick Henry *  TEN   28  RB  16  16  349  1538  13  65  56  4.4  96.1   6
+2      Nick Chubb*  CLE   27  RB  17  17  302  1525  12  69  41  5.0  89.7   1
+3  Saquon Barkley*  NYG   25  RB  16  16  295  1312  10  62  68  4.4  82.0   1
+7   Miles Sanders*  PHI   25  RB  17  15  259  1269  11  62  40  4.9  74.6   2
  ```
             
 ### Get Receiving Data
@@ -85,12 +85,12 @@ print(ffc.getRecData(metrics))
 ```
 Output:
 ```python
-            Player Age Pos  Tgt  Rec   Yds  TD
-            7        Davante Adams*+  30  WR  180  100  1516  14
-            11           A.J. Brown*  25  WR  145   88  1496  11
-            2          Stefon Diggs*  29  WR  154  108  1429  11
-            4           CeeDee Lamb*  23  WR  156  107  1359   9
-            21          Amari Cooper  28  WR  132   78  1160   9
+Player Age Pos  Tgt  Rec   Yds  TD
+7        Davante Adams*+  30  WR  180  100  1516  14
+11           A.J. Brown*  25  WR  145   88  1496  11
+2          Stefon Diggs*  29  WR  154  108  1429  11
+4           CeeDee Lamb*  23  WR  156  107  1359   9
+21          Amari Cooper  28  WR  132   78  1160   9
 ```
 
 ### Get Scoring Data
@@ -104,10 +104,10 @@ print(ffc.getScoringData("QB"))
 ```
 Output:
 ```python
-            Player  RshTD  RecTD  TotalTD
-            33         Jalen Hurts*     13      0       13
-            67        Justin Fields      8      0        8
-            70          Josh Allen*      7      0        7
-            78         Daniel Jones      7      0        7
-            112         Joe Burrow*      5      0        5
+Player  RshTD  RecTD  TotalTD
+33         Jalen Hurts*     13      0       13
+67        Justin Fields      8      0        8
+70          Josh Allen*      7      0        7
+78         Daniel Jones      7      0        7
+112         Joe Burrow*      5      0        5
 ```
