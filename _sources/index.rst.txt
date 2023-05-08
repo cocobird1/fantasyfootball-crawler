@@ -4,5 +4,5 @@
    contain the root `toctree` directive.
 
 .. include:: intro.rst
-.. automodule:: fantasyfootball_crawler.ff_functions
+.. automodule:: ff_functions
     :members:
