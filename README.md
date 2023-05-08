@@ -32,7 +32,7 @@ Use the library by calling the functions that have been written in ff_functions,
 
 Users can call getQBData(metrics) with specified throwing metrics, to return a DataFrame that sorts based on the throwing metrics.
 
-`metrics`: An array of strings that specify specific metrics to sort players by.
+`metrics`: An array of strings that specify specific metrics to sort players by. Can be any combination of these strings: Player  Age   QBR   Cmp%   Yds  TD  Int
 
 ```python
 from fantasyfootball-crawler import ff_functions as ffc
@@ -53,7 +53,7 @@ Output:
 
 Users can call getRushData(metrics) with specified rushing metrics, to return a DataFrame that sorts based on the rushing metrics.
 
-`metrics`: An array of strings that specify specific metrics to sort players by.
+`metrics`: An array of strings that specify specific metrics to sort players by. Can be any combination of these strings: Player   Tm  Age Pos   G  GS  Att   Yds  TD  1D Lng  Y/A   Y/G Fmb
 
 ```python
 from fantasyfootball-crawler import ff_functions as ffc
@@ -75,7 +75,7 @@ Output:
 
 Users can call getRecData(metrics) with specified receiving metrics, to return a DataFrame that sorts based on the receiving metrics.
 
-`metrics`: An array of strings that specify specific metrics to sort players by.
+`metrics`: An array of strings that specify specific metrics to sort players by. Can be any combination of these strings:  Player Age Pos  Tgt  Rec   Yds  TD
 
 ```python
 from fantasyfootball-crawler import ff_functions as ffc
@@ -91,4 +91,23 @@ Output:
             2          Stefon Diggs*  29  WR  154  108  1429  11
             4           CeeDee Lamb*  23  WR  156  107  1359   9
             21          Amari Cooper  28  WR  132   78  1160   9
+```
+
+### Get Scoring Data
+
+Users can call getScoringData(pos) with a specified position, to see the top touchdown scorers at each position: QB, RB, WR, and K (most K don't score TD's though)
+
+`pos`: A string that indicates the position specified, can be "QB", "RB", "WR", or "K"
+```python
+from fantasyfootball-crawler import ff_functions as ffc
+print(ffc.getScoringData("QB"))
+```
+Output:
+```python
+            Player  RshTD  RecTD  TotalTD
+            33         Jalen Hurts*     13      0       13
+            67        Justin Fields      8      0        8
+            70          Josh Allen*      7      0        7
+            78         Daniel Jones      7      0        7
+            112         Joe Burrow*      5      0        5
 ```
