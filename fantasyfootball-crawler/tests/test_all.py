@@ -3,6 +3,7 @@ from ff_functions import (
     getRushData,
     getRecData,
     getScoringData,
+    weightedRankings
 )
 
 
@@ -77,6 +78,10 @@ def test_getScoringData5():
 def test_getScoringData6():
     assert getScoringData("") is None
 
+
+def test_weightedRankings():
+    df = getQBData(["TD"])
+    assert weightedRankings(df, [0.1, 0.4, 0.1, 0.3, 0.1 , 0.1, 0.1]) is not None
 
 # Integration tests
 def integrationTest1():
