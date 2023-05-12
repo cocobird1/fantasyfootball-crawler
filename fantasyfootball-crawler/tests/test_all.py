@@ -1,10 +1,4 @@
-from ff_functions import (
-    getQBData,
-    getRushData,
-    getRecData,
-    getScoringData,
-    weightedRankings
-)
+from ff_functions import getQBData, getRushData, getRecData, getScoringData, weightedRankings
 
 
 def test_getQBData1():
@@ -81,7 +75,8 @@ def test_getScoringData6():
 
 def test_weightedRankings():
     df = getQBData(["TD"])
-    assert weightedRankings(df, [0.1, 0.4, 0.1, 0.3, 0.1 , 0.1, 0.1]) is not None
+    assert weightedRankings(df, [0.1, 0.4, 0.1, 0.3, 0.1, 0.1, 0.1]) is not None
+
 
 # Integration tests
 def integrationTest1():

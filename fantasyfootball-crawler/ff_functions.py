@@ -279,6 +279,7 @@ def getScoringData(pos):
     dfFF = df.loc[:, ["Player", "RshTD", "RecTD", "TotalTD"]].sort_values(by=['TotalTD'], ascending=False)
     return dfFF
 
+
 def weightedRankings(df, weights):
     """
     Returns a DataFrame of the best players in the NFL depending on statistical weighting
@@ -313,18 +314,18 @@ def weightedRankings(df, weights):
                 49   Jarrett Stidham   26  57.8   63.9  656   4    3    44.675
 
     """
-    if(len(df.columns) != len(weights)):
+    if len(df.columns) != len(weights):
         print("Invalid Input. Please input a DataFrame, and a float array of weights, with length of df's columns")
         return None
-    
+
     df['weighted'] = 0.0
     df['weighted'] = df['weighted'].astype(float)
     for i in range(len(df)):
         for j in range(len(weights)):
             stat = df.iat[i, j]
             print(stat)
-            if(isinstance(stat, str)):
+            if isinstance(stat, str):
                 continue
             df.at[i, 'weighted'] += weights[j] * float(stat)
-    
+
     return df.sort_values(by=['weighted'], ascending=False)
