@@ -116,3 +116,24 @@ Player  RshTD  RecTD  TotalTD
 78         Daniel Jones      7      0        7
 112         Joe Burrow*      5      0        5
 ```
+
+### Weighted Rankings
+
+Users can call weightedRankings(df, weights) with a specified DF, and sort them with the corresponding weights. For most people, they can call another function, like getQBData() for example, to get a DataFrame, and then input their desired weights.
+
+'df': A DataFrame with the statistics and corresponding players
+'weights': An integer array that is the same size as the number of columns in df
+
+```python
+df = getQBData(["TD"])
+print(weightedRankings(df, [0.1, 0.4, 0.1, 0.3, 0.1 , 0.1, 0.1]))
+```
+Output:
+```python
+Player  Age   QBR   Cmp%   Yds  TD  Int  weighted
+0    Patrick Mahomes*+   27  77.6   67.1  5250  41   12    568.99
+8     Trevor Lawrence*   23  54.5   66.3  4113  25    8    516.09
+7          Geno Smith*   32  60.8   69.8  4282  30   11    513.28
+4          Joe Burrow*   26  58.7   68.3  4475  35   12    497.36
+1       Justin Herbert   24  58.2   68.2  4739  25   10    488.96
+```
