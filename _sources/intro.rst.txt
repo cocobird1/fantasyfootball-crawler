@@ -1,4 +1,4 @@
-Welcome to fantasyfootball-crawler's documentation!
+**Welcome to FantasyFootball-Crawler's Documentation!**
 =========================================
 
 Fantasy football is a game played by many Americans, 
@@ -39,4 +39,46 @@ Then, you can use the functions! They are listed below.
 To use the library, call the functions in functions after you've installed
 the library. Make sure to import them into your code files first.
 
+**Get QB Data**
+
+Users can call getQBData(metrics) with specified throwing metrics, to return a DataFrame that sorts based on the throwing metrics.
+
+`metrics`: An array of strings that specify specific metrics to sort players by. Can be any combination of these strings: Player  Age   QBR   Cmp%   Yds  TD  Int
+
+Examples are in *Functions and Docstrings*
+
+**Get Rushing Data**
+
+Users can call getRushData(metrics) with specified rushing metrics, to return a DataFrame that sorts based on the rushing metrics.
+
+`metrics`: An array of strings that specify specific metrics to sort players by. Can be any combination of these strings: Player   Tm  Age Pos   G  GS  Att   Yds  TD  1D Lng  Y/A   Y/G Fmb
+
+Examples are in *Functions and Docstrings*
+
+**Get Receiving Data**
+
+Users can call getRecData(metrics) with specified receiving metrics, to return a DataFrame that sorts based on the receiving metrics.
+
+`metrics`: An array of strings that specify specific metrics to sort players by. Can be any combination of these strings:  Player Age Pos  Tgt  Rec   Yds  TD
+
+Examples are in *Functions and Docstrings*
+
+**Get Scoring Data**
+
+Users can call getScoringData(pos) with a specified position, to see the top touchdown scorers at each position: QB, RB, WR, and K (most K don't score TD's though)
+
+`pos`: A string that indicates the position specified, can be "QB", "RB", "WR", or "K"
+
+Examples are in *Functions and Docstrings*
+
+**Weighted Rankings**
+
+Users can call weightedRankings(df, weights) with a specified DF, and sort them with the corresponding weights. For most people, they can call another function, like getQBData() for example, to get a DataFrame, and then input their desired weights.
+
+'df': A DataFrame with the statistics and corresponding players
+'weights': An integer array that is the same size as the number of columns in df
+
+Examples are in *Functions and Docstrings*
+
 **Functions and Docstrings**
+=========================================
