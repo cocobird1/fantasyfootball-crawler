@@ -27,6 +27,7 @@ Receiving Touchdowns, and Total Touchdowns, which can be very helpful in terms o
    This project is under active development.
 
 **How to Install Library**
+
 To install the library, navigate to your console/terminal and run the command
 pip install fantasyfootball-crawler
 
@@ -36,6 +37,7 @@ import fantasyfootball-crawler
 Then, you can use the functions! They are listed below.
 
 **How to Use Library**
+
 To use the library, call the functions in functions after you've installed
 the library. Make sure to import them into your code files first.
 
